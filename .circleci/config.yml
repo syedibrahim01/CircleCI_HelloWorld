@@ -71,17 +71,48 @@
 
 # .circleci/config.yml
 
+#version: 2.1
+#jobs:
+#  build:
+#    machine: ivltest
+#    steps:
+#      - checkout
+
+#      - run:
+#          name: Install Chocolatey
+#          command: |
+#            cmd.exe /c "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+
+#      - run:
+#          name: Install Node.js
+#          command: |
+#            choco install nodejs --version 14.17.3 -y
+
+#      - run:
+#          name: Install dependencies
+#          command: npm install
+
+#      - run:
+#          name: Build project
+#          command: npm run build
+
+#      - run:
+#          name: Run tests
+#          command: npm test
+
+#      - run:
+#          name: Print "Hello, World!"
+#          command: echo "Hello, World!"
+
+# .circleci/config.yml
+
 version: 2.1
 jobs:
   build:
-    machine: ivltest
+    executor:
+      name: windows/default
     steps:
       - checkout
-
-      - run:
-          name: Install Chocolatey
-          command: |
-            cmd.exe /c "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 
       - run:
           name: Install Node.js
