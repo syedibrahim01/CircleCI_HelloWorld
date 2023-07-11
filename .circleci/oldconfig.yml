@@ -1,0 +1,136 @@
+#version: 2.1
+#workflows:
+#  testing:
+#    jobs:
+#      - runner-test
+#jobs:
+#  runner-test:
+#    machine: true
+#    resource_class: syedibrahim/test1
+#    steps:
+#      - run: echo "Hi I'm on Runners!"
+
+# .circleci/config.yml
+
+#version: 2.1
+#jobs:
+#  build:
+#    machine: true
+#    steps:
+#      - checkout
+
+#      - run:
+#          name: Install Node.js
+#          command: |
+#            choco install nodejs --version 14.17.3 -y
+
+#      - run:
+#          name: Install dependencies
+#          command: npm install
+
+ #     - run:
+ #         name: Run project
+ #         command: npm start
+# .circleci/config.yml
+
+#version: 2.1
+#jobs:
+#  build:
+#    machine: true
+#    steps:
+ #     - checkout
+
+ #     - run:
+ #         name: Install Chocolatey
+ #         command: |
+ #           powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+
+ #     - run:
+ #         name: Install Node.js
+ #         command: |
+ #           choco install nodejs --version 14.17.3 -y
+
+  #    - run:
+  #        name: Install dependencies
+  #        command: npm install
+
+ #     - run:
+ #         name: Build project
+ #         command: npm run build
+
+ #     - run:
+ #         name: Run tests
+ #         command: npm test
+
+ #     - run:
+ #         name: Print "Hello, World!"
+ #         command: echo "Hello, World!"
+
+
+
+
+# .circleci/config.yml
+
+#version: 2.1
+#jobs:
+#  build:
+#    machine: ivltest
+#    steps:
+#      - checkout
+
+#      - run:
+#          name: Install Chocolatey
+#          command: |
+#            cmd.exe /c "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+
+#      - run:
+#          name: Install Node.js
+#          command: |
+#            choco install nodejs --version 14.17.3 -y
+
+#      - run:
+#          name: Install dependencies
+#          command: npm install
+
+#      - run:
+#          name: Build project
+#          command: npm run build
+
+#      - run:
+#          name: Run tests
+#          command: npm test
+
+#      - run:
+#          name: Print "Hello, World!"
+#          command: echo "Hello, World!"
+
+# .circleci/config.yml
+
+version: 2.1
+jobs:
+  build:
+    executor:
+      name: windows/default
+    steps:
+      - checkout
+
+      - run:
+          name: Install Node.js
+          command: |
+            choco install nodejs --version 14.17.3 -y
+
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      - run:
+          name: Build project
+          command: npm run build
+
+      - run:
+          name: Run tests
+          command: npm test
+
+      - run:
+          name: Print "Hello, World!"
+          command: echo "Hello, World!"
