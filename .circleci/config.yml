@@ -12,12 +12,38 @@
 
 # .circleci/config.yml
 
+#version: 2.1
+#jobs:
+#  build:
+#    machine: true
+#    steps:
+#      - checkout
+
+#      - run:
+#          name: Install Node.js
+#          command: |
+#            choco install nodejs --version 14.17.3 -y
+
+#      - run:
+#          name: Install dependencies
+#          command: npm install
+
+ #     - run:
+ #         name: Run project
+ #         command: npm start
+# .circleci/config.yml
+
 version: 2.1
 jobs:
   build:
     machine: true
     steps:
       - checkout
+
+      - run:
+          name: Install Chocolatey
+          command: |
+            powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 
       - run:
           name: Install Node.js
@@ -29,5 +55,13 @@ jobs:
           command: npm install
 
       - run:
-          name: Run project
-          command: npm start
+          name: Build project
+          command: npm run build
+
+      - run:
+          name: Run tests
+          command: npm test
+
+      - run:
+          name: Print "Hello, World!"
+          command: echo "Hello, World!"
