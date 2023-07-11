@@ -15,7 +15,7 @@
 version: 2.1
 jobs:
   build:
-    machine: windows-2019
+    machine: true
     steps:
       - checkout
 
